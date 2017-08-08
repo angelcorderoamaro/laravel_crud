@@ -3,7 +3,9 @@
 <div class="container">
  <div class="row">
  <div class="col-md-10 col-md-offset-1">
- {!! Form::model($movie,['route' => 'movie.update', 'method' => 'put', 'novalidate' ,$movie->id]) !!}
+
+ {!!  Form::model($movie, array('route' => array('method' => 'put','movie.update', $movie->id))) !!}
+
 
                 {!! Form::hidden('id', $movie->id) !!}
 

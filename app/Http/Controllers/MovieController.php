@@ -31,14 +31,9 @@ class MovieController extends Controller
    	 	$movie = Movie::find($id);
         echo "dsa $movie";
 
-     return \View::make('update',compact('movie'));
-  
+     return \View::make('updateS',compact('movie'));
+
    	}
-  public function destroy($id)
-  {
-    echo "Esto muestra un producto. Recibiendo00 $id";
-  return "Esto muestra un producto. Recibiendo $id";
-  }
 
 
     //
@@ -46,7 +41,7 @@ class MovieController extends Controller
 
     public function update(Request $request)
     	{
-        echo "string $request";
+        echo "string HOLA";
                     $movie = Movie::find($request->id);
                     $movie->name = $request->name;
                     $movie->description = $request->description;
@@ -60,4 +55,10 @@ class MovieController extends Controller
 
     }
 
+    public function destroy($id)
+    {
+     $movie = Movie::find($id);
+            $movie->delete();
+            return redirect()->back();
+        }
 }

@@ -16,9 +16,11 @@ Route::get('/', function () {
 Route::get('/', function () {
     return view('welcome');
 });
-// //rutas para el recurso movie
- Route::resource('movie','MovieController');
-// //una nueva ruta para eliminar registros con el metodo get
- Route::get('movie/eliminar/{id}', ['as' => 'movie/eliminar', 'uses'=>'MovieController@destroy']);
-// //ruta para realizar busqueda de registros.
- Route::post('movie/search', ['as' => 'movie/search', 'uses'=>'MovieController@search']);
+Route::put('movie/update/{id}', ['as' => 'movie/update', 'uses'=>'MovieController@update']);
+//rutas para el recurso movie
+Route::resource('movie','MovieController');
+//una nueva ruta para eliminar registros con el metodo get
+Route::get('movie/destroy/{id}', ['as' => 'movie/destroy', 'uses'=>'MovieController@destroy']);
+
+//ruta para realizar busqueda de registros.
+Route::post('movie/search', ['as' => 'movie/search', 'uses'=>'MovieController@search']);
